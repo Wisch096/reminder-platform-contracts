@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include=".github\workflows\nuget-publish.yml" />
     <None Include="src\Reminder.Platform.Contracts.csproj" />
   </ItemGroup>
 

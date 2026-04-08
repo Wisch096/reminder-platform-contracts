@@ -4,10 +4,26 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>Reminder.Platform.Contracts</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Reminder Platform Team</Authors>
+    <Company>Reminder Platform</Company>
+    <Description>Contratos compartilhados de eventos para a Reminder Platform.</Description>
+    <PackageTags>reminder;contracts;event-driven;rabbitmq;microservices</PackageTags>
+    <RepositoryUrl>https://github.com/Wisch096/reminder-platform-contracts</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Wisch096/reminder-platform-contracts</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

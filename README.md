@@ -20,11 +20,11 @@ Serviços que consomem este pacote:
 
 ## Estrutura
 
-- `Abstractions/`
+- `src/Abstractions/`
   - `IEvent.cs`
-- `Events/v1/`
+- `src/Events/v1/`
   - `ReminderTriggeredEvent.cs`
-- `Validation/v1/`
+- `src/Validation/v1/`
   - `ReminderTriggeredEventValidator.cs`
 
 ## Versionamento de eventos
@@ -114,3 +114,25 @@ public class ReminderTriggeredConsumer : IConsumer<ReminderTriggeredEvent>
 1. Referencie este projeto/pacote no microserviço.
 2. Use os tipos de `Events.v1` para publicar/consumir.
 3. Aplique os validadores de `Validation.v1` no boundary do consumer.
+
+## Publicação no NuGet
+
+### Publicar manualmente
+
+```powershell
+dotnet restore src/Reminder.Platform.Contracts.csproj
+dotnet build src/Reminder.Platform.Contracts.csproj -c Release
+dotnet pack src/Reminder.Platform.Contracts.csproj -c Release -o ./artifacts
+dotnet nuget push .\artifacts\Reminder.Platform.Contracts.*.nupkg --api-key <SUA_API_KEY> --source https://api.nuget.org/v3/index.json
+```
+
+### Publicação automática com GitHub Actions
+
+O workflow está em `.github/workflows/nuget-publish.yml`.
+
+- Dispara manualmente (`workflow_dispatch`) ou via tag `v*.*.*`.
+- Exemplo de tag: `v1.0.1`.
+
+Configure o secret do repositório:
+
+- `NUGET_API_KEY`: API key do NuGet.org com permissão de push.
